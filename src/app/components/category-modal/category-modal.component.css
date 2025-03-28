@@ -5,7 +5,7 @@
 
 .name-category {
   width: 100%;
-  box-sizing: border-box; /* Agregar esta línea */
+  box-sizing: border-box; 
   border-radius: 0.5em;
   padding: 1em;
   border: none;

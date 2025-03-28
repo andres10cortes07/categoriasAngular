@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+// Para el modal
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { CategoryModalComponent } from '../category-modal/category-modal.component';
+// Importa el servicio para las peticiones HTTP
+import { CategoryService, Category } from '../../services/category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -11,22 +13,29 @@ import { CategoryModalComponent } from '../category-modal/category-modal.compone
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.css']
 })
-export class CategoryListComponent implements OnInit {
-  categories: any[] = [];
-  apiUrl = 'http://localhost:8080/categorias';
 
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+export class CategoryListComponent implements OnInit {
+  // Guardar la data que trae el servicio
+  categories: Category[] = []; 
+
+  constructor(
+    private categoryService: CategoryService, 
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.getCategories();
   }
 
   getCategories() {
-    this.http.get<any[]>(`${this.apiUrl}/getAll`).subscribe(data => {
-      this.categories = data;
-    }, error => {
-      console.error('Error al obtener categorías:', error);
-    });
+    this.categoryService.getAllCategories().subscribe( 
+      (data) => {
+        this.categories = data;
+      },
+      (error) => {
+        console.error('Error al obtener categorías:', error);
+      }
+    );
   }
 
   openModal() {
@@ -43,10 +52,13 @@ export class CategoryListComponent implements OnInit {
 
   createCategory(name: string) {
     const newCategory = { name };
-    this.http.post(`${this.apiUrl}/create`, newCategory).subscribe(() => {
-      this.getCategories();
-    }, error => {
-      console.error('Error al crear la categoría:', error);
-    });
+    this.categoryService.createCategory(newCategory).subscribe( 
+      () => {
+        this.getCategories(); // Recargar la lista después de crear
+      },
+      (error) => {
+        console.error('Error al crear la categoría:', error);
+      }
+    );
   }
 }

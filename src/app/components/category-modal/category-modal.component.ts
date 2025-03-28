@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './category-modal.component.html',
   styleUrls: ['./category-modal.component.css']
 })
+
 export class CategoryModalComponent {
   categoryName: string = '';
 
@@ -16,11 +17,13 @@ export class CategoryModalComponent {
 
   save() {
     if (this.categoryName.trim()) {
+      // cierra el modal y envia la categoria creada
       this.dialogRef.close(this.categoryName);
     }
   }
 
   close() {
+    // simplemente cierra el modal
     this.dialogRef.close();
   }
 }

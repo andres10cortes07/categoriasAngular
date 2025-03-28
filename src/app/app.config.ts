@@ -2,7 +2,7 @@ import { importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms'; // 👈 IMPORTAR FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 export const appConfig = {
   providers: [
@@ -10,7 +10,7 @@ export const appConfig = {
     provideHttpClient(),
     importProvidersFrom(
       MatDialogModule,
-      FormsModule  // 👈 Asegúrate de incluir FormsModule
+      FormsModule  // 
     )
   ],
   standalone: true

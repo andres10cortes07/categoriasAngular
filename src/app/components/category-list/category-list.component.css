@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .container {
   margin: auto;
   width: 800px;
@@ -9,7 +8,6 @@
   text-align: center;
 }
 
-/* Título */
 h2 {
   font-size: 28px;
   color: #333;
@@ -18,13 +16,11 @@ h2 {
   text-transform: uppercase;
 }
 
-/* Contenedor de la tabla */
 .table-container {
   width: 100%;
-  overflow-x: auto; /* Permite desplazamiento si la tabla es muy grande */
+  overflow-x: auto;
 }
 
-/* Estilos de la tabla */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -34,9 +30,8 @@ table {
   background: #fff;
 }
 
-/* Encabezados */
 thead {
-  background: #007bff; /* Degradado azul */
+  background: #007bff; 
   color: white;
 }
 
@@ -46,20 +41,17 @@ th {
   text-transform: uppercase;
 }
 
-/* Celdas */
 td {
   padding: 12px;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
 }
 
-/* Hover en filas */
 tbody tr:hover {
   background-color: rgba(0, 123, 255, 0.1); /* Azul muy sutil */
   transition: background 0.3s ease;
 }
 
-/* Mensaje de carga */
 .loading {
   font-size: 18px;
   color: #555;
