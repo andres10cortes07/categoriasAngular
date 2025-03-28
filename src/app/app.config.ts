@@ -1,8 +1,17 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { importProvidersFrom } from '@angular/core';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms'; // 👈 IMPORTAR FormsModule
 
-import { routes } from './app.routes';
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+export const appConfig = {
+  providers: [
+    provideAnimations(),
+    provideHttpClient(),
+    importProvidersFrom(
+      MatDialogModule,
+      FormsModule  // 👈 Asegúrate de incluir FormsModule
+    )
+  ],
+  standalone: true
 };

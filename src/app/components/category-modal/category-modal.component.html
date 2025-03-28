@@ -1,0 +1,15 @@
+<div class="container2">
+  <h2>Crear Categoría</h2>
+  <div>
+    <input
+      class="name-category"
+      type="text"
+      [(ngModel)]="categoryName"
+      placeholder="Nombre de la categoría"
+    />
+    <div class="ctn-btns">
+      <button (click)="close()" class="btn-cancelar">Cancelar</button>
+      <button (click)="save()" class="btn-guardar">Guardar</button>
+    </div>
+  </div>
+</div>

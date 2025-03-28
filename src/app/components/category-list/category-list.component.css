@@ -1,0 +1,109 @@
+/* Contenedor principal */
+.container {
+  margin: auto;
+  width: 800px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Contenedor de la tabla */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Permite desplazamiento si la tabla es muy grande */
+}
+
+/* Estilos de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+/* Encabezados */
+thead {
+  background: #007bff; /* Degradado azul */
+  color: white;
+}
+
+th {
+  padding: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* Celdas */
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover en filas */
+tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Azul muy sutil */
+  transition: background 0.3s ease;
+}
+
+/* Mensaje de carga */
+.loading {
+  font-size: 18px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.boton-elegante {
+  display: flex;
+  margin-top: 1.5em;
+  padding: 15px 30px;
+  border: 2px solid #2c2c2c;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.boton-elegante::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.boton-elegante:hover::after {
+  transform: scale(4);
+}
+
+.boton-elegante:hover {
+  border-color: #666666;
+  background: #292929;
+}
